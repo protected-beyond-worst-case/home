@@ -44,8 +44,13 @@
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
 
+  <!--
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  -->
+  <script type="text/javascript"
+  src="https://www.maths.nottingham.ac.uk/plp/pmadw/LaTeXMathML.js">
   </script>
   <script type="text/javascript"
     src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
@@ -187,7 +192,7 @@
             In light of the burgeoning success of reinforcement learning (RL) in diverse real-world applications, considerable focus has been directed towards ensuring RL policies are robust to adversarial attacks during test time. Current approaches largely revolve around solving a minimax problem to prepare for potential worst-case scenarios. 
             While effective against strong attacks, these methods often compromise performance in the absence of attacks or the presence of only weak attacks. 
             To address this, we study policy robustness under the well-accepted state-adversarial attack model, extending our focus beyond merely worst-case attacks. We first formalize this task at test time as a regret minimization problem and establish its intrinsic difficulty in achieving sublinear regret when the baseline policy is from a general continuous policy class, $\Pi$. 
-            This finding prompts us to <b><i>refine</i></b> the baseline policy class  prior to test time, aiming for efficient adaptation within a compact, finite policy class $\Pi$, which can resort to an adversarial bandit subroutine. In light of the importance of a finite and compact $\tilde{\Pi}$, we propose a novel training-time algorithm to iteratively discover <b><i>non-dominated policies</i></b>, forming a near-optimal and minimal $\tilde{\Pi}$
+            This finding prompts us to <b><i>refine</i></b> the baseline policy class  prior to test time, aiming for efficient adaptation within a compact, finite policy class $\widetilde{\Pi}$, which can resort to an adversarial bandit subroutine. In light of the importance of a finite and compact $\widetilde{\Pi}$, we propose a novel training-time algorithm to iteratively discover <b><i>non-dominated policies</i></b>, forming a near-optimal and minimal $\widetilde{\Pi}$
 , thereby ensuring both robustness and test-time efficiency. 
             Empirical validation on the Mujoco corroborates the superiority of our approach in terms of natural and robust performance, as well as adaptability to various attack scenarios.
           </p>
@@ -237,7 +242,7 @@
       <h3 class="title is-4">Test-time Online Adaptation</h3>
       <div class="text-content" style="text-align: left; margin-bottom: 30px;">
         <p>Instead of employing a static victim policy, we propose adaptively selecting policies based on online reward feedback during test time. 
-          Although the sublinear regret is not guaranteed in the broader policy class $\Pi$, it is achievable in a smaller, finite but refined policy class $\tilde{\Pi}$. 
+          Although the sublinear regret is not guaranteed in the broader policy class $\Pi$, it is achievable in a smaller, finite but refined policy class $\widetilde{\Pi}$. 
       </p>
       </div>
       <div style="margin-bottom: 40px; text-align: center;">
@@ -269,9 +274,9 @@
     <div class="container">
       <h3 class="title is-4">Iterative Discovery in Pre-training</h3>
       <div class="text-content" style="text-align: left; margin-bottom: 30px;">
-        <p>While there is a trade-off between optimality (the gap of maximum rewards in the original policy class $\Pi$ and the refined policy class $\tilde{\Pi}$) and efficiency (the cardinality of the refined policy class $|\tilde{\Pi}|$), it is proved that a zero gap is achivable with a finite refined policy class. 
+        <p>While there is a trade-off between optimality (the gap of maximum rewards in the original policy class $\Pi$ and the refined policy class $\widetilde{\Pi}$) and efficiency (the cardinality of the refined policy class $|\widetilde{\Pi}|$), it is proved that a zero gap is achivable with a finite refined policy class. 
           But this finite policy class can be still relatively large.
-          To effectively reduce the cardinality of $\tilde{\Pi}$, we propose an iterative pre-training approach to construct $\tilde{\Pi}$.
+          To effectively reduce the cardinality of $\widetilde{\Pi}$, we propose an iterative pre-training approach to construct $\widetilde{\Pi}$.
       </p>
       </div>
       <div style="margin-bottom: 40px; text-align: center;">
@@ -284,8 +289,8 @@
         </div>
       </div>
       <div class="text-content" style="text-align: left; margin-bottom: 30px;">
-        <p>For each iteration, a new <i>non-dominated</i> policy (red dot), whose reward aginst at least one attack outperforms all meta-policies in $\tilde{\Pi}$, is added to $\tilde{\Pi}$.
-          This process effectively removes those redundant <i>dominated</i> policies (the orange area) while maintaining the optimality of $\tilde{\Pi}$.
+        <p>For each iteration, a new <i>non-dominated</i> policy (red dot), whose reward aginst at least one attack outperforms all meta-policies in $\widetilde{\Pi}$, is added to $\widetilde{\Pi}$.
+          This process effectively removes those redundant <i>dominated</i> policies (the orange area) while maintaining the optimality of $\widetilde{\Pi}$.
 
       </p>
       </div>
@@ -318,7 +323,7 @@
       </div>
 
       <div class="text-content" style="text-align: left; margin-bottom: 30px;">
-        <p>Moreover, in the scenarios where the attacker can exhibit dynamic behavior, the best policy within non-dominated policy class $\tilde{\Pi}$ can be identified by EXP3 rapidly and reliably.
+        <p>Moreover, in the scenarios where the attacker can exhibit dynamic behavior, the best policy within non-dominated policy class $\widetilde{\Pi}$ can be identified by EXP3 rapidly and reliably.
       </p>
       </div>
       <div id="results-carousel" class="carousel results-carousel">
